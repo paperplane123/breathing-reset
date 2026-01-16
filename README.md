@@ -1,63 +1,27 @@
 # breathing-reset
 一个喷嚏犯困后和ChatGPT网页端聊出来的呼吸引导，可以记录次数，点开即用
 
-A tiny breathing guide for moments when your system needs a reset.
+## Versions
 
-This is a single-file web app designed for:
-- fatigue
-- cognitive overload
-- sudden drowsiness
-- nervous system downshifts
+### v0.2 — Quick Reset
+Introduces a fast recovery mode for sudden fatigue or attention drop.
 
-No accounts.  
-No data upload.  
-No optimization pressure.
+- Added **30s Reset** mode (3 breathing cycles)
+- Added keyboard trigger (`Space`) for no-look activation
+- Added persistent local counter for completed breaths
+- Improved audio cues for inhale / exhale distinction
+- Reduced interaction during active sessions to avoid interruption
 
----
-
-## What it does
-
-- Guides a **4–6 breathing rhythm**  
-  (inhale 4s, exhale 6s)
-- Uses **soft audio cues**
-- Records **completed breathing cycles locally**
-- Works offline, runs entirely in the browser
-
-One full cycle = one intentional breath.
+This version focuses on **speed, clarity, and minimal cognitive load**.
 
 ---
 
-## Why it exists
+### v0.1 — Initial Release
+A simple guided breathing tool using a 4–6 rhythm.
 
-Sometimes you don’t need motivation, productivity tools, or tracking dashboards.
-
-You just need a small, reliable way to tell your nervous system:
-
-> “It’s okay. You can slow down now.”
-
----
-
-## How to use
-
-Open the app, press **Start**, and follow the sound.
-
-You don’t need to look at the screen.
-
----
-
-## Live version
-
-https://paperplane123.github.io/breathing-reset/
-
----
-
-## Design principles
-
-- Minimal surface
-- No gamification
-- No streaks
-- No cloud sync
-- Respect attention and fatigue
+- Visual inhale / exhale guidance
+- Minimal UI with no configuration
+- Runs entirely in-browser, no data collected
 
 ---
 
