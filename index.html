@@ -70,13 +70,17 @@
     <div class="label" id="label">准备</div>
     <div class="label" id="counter" style="font-size:14px;opacity:0.7;">已完成 0 次深呼吸</div>
 
-    <button id="start">开始</button>
+    <div style="display:flex;gap:12px;justify-content:center;">
+      <button id="start">开始</button>
+      <button id="quick" style="background:#22c55e;">30s Reset</button>
+    </div>
   </div>
 
   <script>
     const circle = document.getElementById('circle');
     const label = document.getElementById('label');
     const startBtn = document.getElementById('start');
+    const quickBtn = document.getElementById('quick');
     const counter = document.getElementById('counter');
 
     // 读取历史记录
@@ -121,10 +125,11 @@
       return new Promise(r => setTimeout(r, 6000));
     }
 
-    async function run() {
+    async function run(customCycles = cycles) {
       startBtn.disabled = true;
+      quickBtn.disabled = true;
       beep(300, 880); // 开始提示
-      for (let i = 0; i < cycles; i++) {
+      for (let i = 0; i < customCycles; i++) {
         await inhale();
         await exhale();
 
@@ -136,9 +141,22 @@
       label.textContent = '完成，可以继续工作了';
       beep(400, 523); // 结束提示
       startBtn.disabled = false;
+      quickBtn.disabled = false;
     }
 
-    startBtn.addEventListener('click', run);
+    startBtn.addEventListener('click', () => run(cycles));
+    quickBtn.addEventListener('click', () => run(3));
+
+    // 键盘快捷键：Space = 30s Reset
+    document.addEventListener('keydown', (e) => {
+      if (e.code === 'Space') {
+        e.preventDefault();
+        if (!startBtn.disabled && !quickBtn.disabled) {
+          run(3);
+        }
+      }
+    });
   </script>
 </body>
 </html>
+
